@@ -1,0 +1,12 @@
+.app__header {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.app__brand {
+  padding-bottom: 1rem;
+}

@@ -1,0 +1,11 @@
+.brand {
+  color: var(--color-accent-primary);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.brand__text {
+  padding-left: 0.1rem;
+  font-size: 0.8rem;
+}
