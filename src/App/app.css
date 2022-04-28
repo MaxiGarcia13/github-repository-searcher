@@ -1,5 +1,16 @@
-.app__header {
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.app__header,
+.app__main {
   padding: 1rem;
+  grid-row: 1fr;
+}
+
+.app__header {
   padding-bottom: 2rem;
   display: flex;
   align-items: center;

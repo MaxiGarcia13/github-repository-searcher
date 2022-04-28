@@ -1,8 +1,12 @@
 import './searchBox.css';
 
 const SearchBox = (): React.ReactElement => {
+  const onSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+  };
+
   return (
-    <form action='' className='search-box'>
+    <form className='search-box' onSubmit={onSubmit}>
       <input type='search' placeholder='Search repositories' className='search-box__input' />
       <input type='submit' value='🔍' className='search-box__button' />
     </form>

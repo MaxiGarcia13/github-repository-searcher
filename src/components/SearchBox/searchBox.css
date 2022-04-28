@@ -4,9 +4,13 @@
   border-radius: 4px;
   display: flex;
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   border: 1px solid transparent;
   font-size: 1rem;
+}
+
+.search-box:hover {
+  border: 1px solid var(--color-primary);
 }
 
 .search-box:focus-within {
