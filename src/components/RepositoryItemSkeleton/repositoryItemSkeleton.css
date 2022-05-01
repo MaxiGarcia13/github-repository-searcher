@@ -1,0 +1,41 @@
+.skeleton {
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 80%
+    ),
+    lightgray;
+  background-repeat: repeat-y;
+  background-size: 50px 500px;
+  background-position: 0 0;
+  animation: shine 1s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shine {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.skeleton-item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+.skeleton-item__kind {
+  width: 100px;
+  height: 18px;
+}
+.skeleton-item__header {
+  width: 241px;
+  height: 241px;
+}
+.skeleton-item__name {
+  width: 150px;
+  height: 16px;
+}
