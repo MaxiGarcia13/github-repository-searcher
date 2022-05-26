@@ -3,15 +3,6 @@
 import repositories0 from '../fixtures/repositories_0.json';
 import repositories1000 from '../fixtures/repositories_1000.json';
 
-Cypress.Commands.add('searchPressEnter', (value) => {
-  cy.get('.search-box__input').type(`${value}{enter}`);
-});
-
-Cypress.Commands.add('searchClick', (value) => {
-  cy.get('.search-box__input').type(value);
-  cy.get('.search-box__button').click();
-});
-
 describe('First test', function () {
   this.beforeEach(function () {
     cy.visit('/');
