@@ -3,6 +3,15 @@
 import repositories0 from '../fixtures/repositories_0.json';
 import repositories1000 from '../fixtures/repositories_1000.json';
 
+Cypress.Commands.add('searchPressEnter', (value) => {
+  cy.get('.search-box__input').type(`${value}{enter}`);
+});
+
+Cypress.Commands.add('searchClick', (value) => {
+  cy.get('.search-box__input').type(value);
+  cy.get('.search-box__button').click();
+});
+
 describe('First test', function () {
   this.beforeEach(function () {
     cy.visit('/');
@@ -23,7 +32,7 @@ describe('First test', function () {
       expect(interception.request.url).to.match(/since=0/);
     });
 
-    cy.get('@input').type('1000{enter}');
+    cy.searchPressEnter(1000);
 
     cy.wait('@api').then((interception) => {
       expect(interception.request.url).to.match(/since=1000/);
@@ -35,8 +44,7 @@ describe('First test', function () {
       expect(interception.request.url).to.match(/since=0/);
     });
 
-    cy.get('.search-box__input').type('1000');
-    cy.get('.search-box__button').click();
+    cy.searchClick(1000);
 
     cy.wait('@api').then((interception) => {
       expect(interception.request.url).to.match(/since=1000/);
@@ -51,12 +59,11 @@ describe('First test', function () {
     cy.wait('@api');
     getLoading().should('not.exist');
 
-    cy.get('@input').type('1000{enter}');
+    cy.searchPressEnter(1000);
 
     getLoading().should('be.visible');
 
-    cy.wait('@api')
-    .then((interception) => {
+    cy.wait('@api').then((interception) => {
       expect(interception.request.url).to.match(/since=1000/);
     });
 
