@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 
-type Fn<T> = (query: T) => Promise<T[]>;
-
-const useFetch = <T>(service: Fn<T>, query: T) => {
+const useFetch = <T, Q>(service: (query: Q) => Promise<T[]>, query: Q) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState<Error | null>(null);
 
-  const onFetch = async (query: T) => {
+  const onFetch = async (query: Q) => {
     setLoading(true);
     setError(null);
 

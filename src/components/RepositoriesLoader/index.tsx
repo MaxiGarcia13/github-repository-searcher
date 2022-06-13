@@ -4,6 +4,7 @@ import useFetch from '../../hooks/useFetch';
 import RepositoryItem from '../RepositoryItem';
 import RepositoryItemSkeleton from '../RepositoryItemSkeleton';
 import './repositoriesLoader.css';
+import { RepositoryItemProps } from '../../domain/repositories';
 
 interface RepositoriesLoaderProps {
   sinceQuery: number;
@@ -19,7 +20,7 @@ const RepositoriesLoader = (props: RepositoriesLoaderProps) => {
       {loading === true ? (
         <List items={[1, 2, 3]} ItemComponent={RepositoryItemSkeleton} />
       ) : (
-        <List items={data} ItemComponent={RepositoryItem} />
+        <List items={data as RepositoryItemProps[]} ItemComponent={RepositoryItem} />
       )}
     </>
   );
