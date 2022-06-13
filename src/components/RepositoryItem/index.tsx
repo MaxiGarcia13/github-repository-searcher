@@ -1,17 +1,9 @@
+import { RepositoryItemProps } from '../../domain/repositories';
 import './repositoryItem.css';
-interface RepositoryItemProps {
-  full_name: string;
-  title: string;
-  description: string;
-  owner: {
-    avatar_url: string;
-  };
-  url: string;
-}
 
-const RepositoryItem = ({ full_name, owner, title, description }: RepositoryItemProps): React.ReactElement => {
+const RepositoryItem = ({ full_name, owner, title, description, url }: RepositoryItemProps): React.ReactElement => {
   return (
-    <a href='https://github.com/mojombo/grit' target='_blank' className='result-item'>
+    <a href={url} target='_blank' className='result-item'>
       <article>
         <span className='result-item__kind'>{title}</span>
         <header className='result-item__header'>

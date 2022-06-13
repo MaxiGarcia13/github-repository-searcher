@@ -1,8 +1,3 @@
-export const getRepositories = (since: number = 0) =>
-  fetch(`https://api.github.com/repositories?since=${since}`).then((response) => {
-    if (response.ok) {
-      return response.json();
-    }
+import { cacheFetch } from '../config/cache-fetch';
 
-    throw new Error(`Failed Request ${response.status}`);
-  });
+export const getRepositories = (since: number = 0) => cacheFetch(`https://api.github.com/repositories?since=${since}`);
