@@ -18,4 +18,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run Test e2e
-        run: npm run test:e2e
+        uses: cypress-io/github-action@v4
+        with:
+          command: npm run test:e2e
+          start: npm run start
+          wait-on: http://localhost:3000
